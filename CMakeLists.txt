@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.23)
+project(prog3_lect)
+set(CMAKE_CXX_STANDARD 17)
+add_compile_options(-Wall -Wextra -pedantic -Werror)
+
+include("${CMAKE_CURRENT_SOURCE_DIR}/01_HelloWorld/CmakeLists.txt")
+include("${CMAKE_CURRENT_SOURCE_DIR}/02a_CStyleStructs/CmakeLists.txt")
+include("${CMAKE_CURRENT_SOURCE_DIR}/02b_CppStyleStructs/CmakeLists.txt")
+include("${CMAKE_CURRENT_SOURCE_DIR}/03a_Classes/CmakeLists.txt")
+#include‚("${CMAKE_CURRENT_SOURCE_DIR}/04a_ClassHierarchie/CmakeLists.txt")

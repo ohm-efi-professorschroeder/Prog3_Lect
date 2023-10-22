@@ -1,0 +1,12 @@
+set(CMAKE_C_STANDARD 17)
+
+cmake_path(GET CMAKE_CURRENT_LIST_DIR FILENAME DIRECTORY_NAME)
+
+message("${ROOT_NAME}")
+message("${ROOT_DIRECTORY}")
+
+file(GLOB SRC_FILES
+    "${CMAKE_CURRENT_LIST_DIR}/*.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/*.hpp")
+
+add_executable("${DIRECTORY_NAME}" ${SRC_FILES})
