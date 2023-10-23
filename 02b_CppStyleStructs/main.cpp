@@ -37,6 +37,10 @@ int main()
     Camera cam1 = {"Leica", "M5", 1972};
     Camera cam2 = {"Sony", "A6000", 2019};
 
+    Camera cam3;
+
+    cam1.make = "Canon";
+
     cam1.print();
     cam2.print();
 }
