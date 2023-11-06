@@ -1,0 +1,48 @@
+@startuml 04a_ClassHierarchie
+
+class Kamera
+{
+    #baujahr:int
+    #modell:string
+    #hersteller:string
+
+    Kamera(baujahr:int, modell:int, hersteller:int)
+}
+
+class Filmkamera
+{
+    #film:string
+
+    Filmkamera(baujahr:int, modell:int, hersteller:int, film:int)
+}
+
+class Digitalkamera
+{
+    #megapixel:int
+
+    Digitalkamera(baujahr:int, modell:int, hersteller:int, megapixel:int)
+}
+
+class Fotograf
+{
+    -name:string
+    -kameras:list<Kamera*>
+
+    Fotograf(name:string)
+    schiesseFoto()
+}
+
+class Event
+{
+    -name:string
+    -fotografen:list<Fotograf*>
+
+    +start()
+}
+
+Filmkamera --|> Kamera
+Digitalkamera --|> Kamera
+Fotograf --o "*" Kamera
+Event --o "*" Fotograf
+
+@enduml
