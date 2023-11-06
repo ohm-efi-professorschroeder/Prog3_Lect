@@ -1,48 +1,53 @@
 @startuml 04a_ClassHierarchie
 
-class Kamera
+class Camera
 {
-    #baujahr:int
-    #modell:string
-    #hersteller:string
+    #year:int
+    #model:string
+    #make:string
 
-    Kamera(baujahr:int, modell:int, hersteller:int)
+    +Kamera(year:int, model:string, make:string)
+    +takePhoto()
 }
 
-class Filmkamera
+class FilmCamera
 {
     #film:string
 
-    Filmkamera(baujahr:int, modell:int, hersteller:int, film:int)
+    +FilmCamera(year:int, model:string, make:string, film:string)
+    +takePhoto()
 }
 
-class Digitalkamera
+class DigitalCamera
 {
     #megapixel:int
 
-    Digitalkamera(baujahr:int, modell:int, hersteller:int, megapixel:int)
+    +DigitalCamera(year:int, model:string, make:string, megapixel:int)
+    +takePhoto()
 }
 
-class Fotograf
+class Photographer
 {
     -name:string
-    -kameras:list<Kamera*>
+    -cameras:list<Camera*>
 
-    Fotograf(name:string)
-    schiesseFoto()
+    +Photographer(name:string)
+    +takePhotos()
 }
 
 class Event
 {
     -name:string
-    -fotografen:list<Fotograf*>
+    -photographers:list<Photographer*>
 
+    +Event(name: string)
+    +addPhotographer(Photographer* photographer)
     +start()
 }
 
-Filmkamera --|> Kamera
-Digitalkamera --|> Kamera
-Fotograf --o "*" Kamera
-Event --o "*" Fotograf
+FilmCamera --|> Camera
+DigitalCamera --|> Camera
+Photographer --o "*" Camera
+Event --o "*" Photographer
 
 @enduml
