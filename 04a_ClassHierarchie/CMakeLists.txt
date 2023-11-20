@@ -9,6 +9,7 @@ set(SRC_FILES
         ${CMAKE_CURRENT_LIST_DIR}/src/event.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/filmcamera.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/digitalcamera.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/smartphone.cpp
 )
 
 add_executable(${EXECUTABLE_NAME} ${SRC_FILES})

@@ -4,15 +4,13 @@
 
 #include "IPhotoDevice.h"
 
-class Camera : public IPhotoDevice
+class Smartphone : public IPhotoDevice
 {
 public:
-    Camera(int year, std::string make, std::string model);
-    virtual ~Camera() {};
+    Smartphone(std::string make, std::string model);
+    virtual ~Smartphone(){};
     virtual void takePhoto();
-
-protected:
-    int year_;
+private:
     std::string make_;
     std::string model_;
 };

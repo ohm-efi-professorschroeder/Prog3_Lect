@@ -7,15 +7,15 @@ Photographer::Photographer(std::string name)
     name_ = name;
 }
 
-void Photographer::addCamera(Camera* camera)
+void Photographer::addCamera(IPhotoDevice* camera)
 {
-    kameras_.push_back(camera);
+    cameras_.push_back(camera);
 }
 
 void Photographer::takePhotos()
 {
     std::cout << name_ << " takes photos: " << std::endl;
-    for(Camera* kamera : kameras_)
+    for(IPhotoDevice* kamera : cameras_)
     {
         kamera->takePhoto();
     }

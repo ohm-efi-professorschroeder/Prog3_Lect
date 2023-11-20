@@ -8,11 +8,11 @@
 class Event
 {
 public:
-    Event(std::string name, std::string datum);
-    void addPhotographer(Photographer* fotograf);
+    Event(std::string name, std::string date);
+    void addPhotographer(Photographer* photographer);
     void start();
 private:
     std::string name_;
-    std::string datum_;
+    std::string date_;
     std::list<Photographer*> photographers_;
 };

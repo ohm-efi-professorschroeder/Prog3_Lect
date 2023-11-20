@@ -4,9 +4,9 @@
 
 Camera::Camera(int year, std::string make, std::string model)
 {
-    baujahr_ = year;
-    hersteller_ = make;
-    modell_ = model;
+    year_ = year;
+    make_ = make;
+    model_ = model;
 }
 
 void Camera::takePhoto()

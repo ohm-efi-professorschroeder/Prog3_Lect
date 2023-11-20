@@ -12,7 +12,7 @@ Modellieren Sie eine Klassenhierarchie für Events und deren Fotografen:
 - Es gibt verschiedene Arten von Kameras, mit denen Fotos gemacht werden können: analoge Kameras und digitale Kameras.
   Ein Foto soll durch Aufrufen einer Funktion ausgelöst werden.
 - Kameras haben außerdem Modell, Hersteller und Baujahr.
-- Ein Photographer hat einen Namen und verfügt über eine oder mehrere Kameras.
+- Ein Fotograf hat einen Namen und verfügt über eine oder mehrere Kameras.
 - Ein Event hat einen Namen und Datum und kann beliebig viele Fotografen haben.
 - Wenn ein Event beginnt, schießen alle Fotografen mit allen ihren Kameras ein Foto.
 

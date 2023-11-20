@@ -5,7 +5,7 @@
 #include "event.h"
 #include "filmcamera.h"
 #include "photographer.h"
-// #include "Smartphone.h"
+#include "smartphone.h"
 
 int main()
 {
@@ -23,13 +23,13 @@ int main()
     event.addPhotographer(&alice);
     event.addPhotographer(&bob);
 
-    /*
+
     // Der folgende Code sollte erst nach Implementierung von Aufgabe 3 ausführbar sein!
     Photographer lisa("Lisa");
     Smartphone smartphone("Apple", "iPhone 12");
     lisa.addCamera(&smartphone);
     event.addPhotographer(&lisa);
-    */
+
 
     event.start();
 

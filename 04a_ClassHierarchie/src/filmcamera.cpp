@@ -10,5 +10,5 @@ FilmCamera::FilmCamera(int year, std::string make, std::string model, std::strin
 
 void FilmCamera::takePhoto()
 {
-    std::cout << "Film camera '" << modell_ << "' takes a photo." << std::endl;
+    std::cout << "Film camera '" << model_ << "' takes a photo." << std::endl;
 }

@@ -10,5 +10,5 @@ DigitalCamera::DigitalCamera(int year, std::string make, std::string model, int 
 
 void DigitalCamera::takePhoto()
 {
-    std::cout << "Digital camera '" << modell_ << "' takes photo." << std::endl;
+    std::cout << "Digital camera '" << model_ << "' takes photo." << std::endl;
 }
