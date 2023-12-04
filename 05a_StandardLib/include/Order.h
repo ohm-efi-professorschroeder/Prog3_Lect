@@ -23,7 +23,7 @@ public:
     std::tm getDate() const;
 
     friend std::ostream& operator<<(std::ostream &os, const Order &camera);
-
+    friend bool operator<(const Order& order1, const Order& order2);
 };
 
 

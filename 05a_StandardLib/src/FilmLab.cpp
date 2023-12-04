@@ -34,7 +34,13 @@ void FilmLab::processNextOrder()
 {
     sortBacklog();
     // TODO in class
-
+    if(!backlog_.empty())
+    {
+        auto firstElement = backlog_.begin();
+        processOrder(*firstElement);
+        processed_.push_back(*firstElement);
+        backlog_.erase(firstElement);
+    }
 }
 
 void FilmLab::processOrder(Order* order)
@@ -61,13 +67,32 @@ void FilmLab::printProcessed() const
     }
 }
 
+bool compareOrders(const Order* order1, const Order* order2)
+{
+    return *order1 < *order2;
+}
+
 void FilmLab::sortBacklog()
 {
-    // TODO in class
+    //std::sort(backlog_.begin(), backlog_.end(), compareOrders);
+    backlog_.sort(compareOrders);
 }
 
 FilmLab::MyContainer FilmLab::retrieveOrders(std::string customerName)
 {
-    // TODO in class
-    return MyContainer();
+    MyContainer ordersToRetrieve;
+    for(auto it = processed_.begin(); it != processed_.end(); it++)
+    {
+        if((*it)->getCustomer() == customerName)
+        {
+            ordersToRetrieve.push_back(*it);
+        }
+    }
+
+    for(auto it = ordersToRetrieve.begin(); it != ordersToRetrieve.end(); it++)
+    {
+        processed_.remove(*it);
+    }
+
+    return ordersToRetrieve;
 }

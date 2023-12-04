@@ -3,10 +3,12 @@
 #include "Order.h"
 
 #include <vector>
+#include <list>
+
 #define N 5
 class FilmLab
 {
-    using MyContainer = std::vector<Order*>;
+    using MyContainer = std::list<Order*>;
 
 private:
     MyContainer backlog_;
