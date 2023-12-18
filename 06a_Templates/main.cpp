@@ -7,11 +7,11 @@
 
 using namespace std;
 
+template <typename T>
 class MyContainer
 {
 private:
-    //int *memory;
-    std::unique_ptr<int> memory;
+    std::unique_ptr<T[]> memory;
     int length;
     int capacity;
 
@@ -24,23 +24,17 @@ public:
 
     ~MyContainer()
     {
-        //delete[] memory;
     }
 
     void resize(int newCapacity)
     {
-//        int* newMemory = new int[newCapacity];
-//        memcpy(newMemory, memory, length * sizeof(int));
-//        delete[] memory;
-//        memory = newMemory;
-//        capacity = newCapacity;
-        int* newMemory = new int[newCapacity];
+        T* newMemory = new T[newCapacity];
         memcpy(newMemory, memory.get(), length * sizeof(int));
         memory.reset(newMemory);
         capacity = newCapacity;
     }
 
-    void addElement(int element)
+    void addElement(T element)
     {
         if (length == capacity)
         {
@@ -50,11 +44,11 @@ public:
         length++;
     }
 
-    int getElement(int index) const
+    T getElement(int index) const
     {
         if(index < 0 || index >= length)
         {
-            return -1;
+            throw invalid_argument("Invalid index!");
         }
         return memory[index];
     }
@@ -68,30 +62,47 @@ public:
     {
         return capacity;
     }
-
 };
+
+template <typename T>
+void printContainer(const MyContainer<T>& container)
+{
+    cout << "Container elements: " << endl;
+    for(int i = 0; i < container.getLength(); ++i)
+    {
+        cout << "..." << container.getElement(i) << endl;
+    }
+}
 
 int main()
 {
     /* Int-Container Test*/
-    MyContainer myIntContainer;
+    MyContainer<int> myIntContainer;
 
     myIntContainer.addElement(1);
     myIntContainer.addElement(2);
     myIntContainer.addElement(3);
+    myIntContainer.addElement(-1);
 
     cout << "Container length: " << myIntContainer.getLength() << endl;
     cout << "Container capacity: " << myIntContainer.getCapacity() << endl;
 
-    cout << "Container elements: " << endl;
-    for(int i = 0; i < myIntContainer.getLength(); ++i)
+    printContainer(myIntContainer);
+
+    try
     {
-        cout << "..." << myIntContainer.getElement(i) << endl;
+        myIntContainer.getElement(99);
+    }
+    catch (const invalid_argument& exception)
+    {
+        cout << "Exception while accessing element: " << exception.what() << endl;
     }
 
-    /* Shared-Ptr example */
-    std::shared_ptr<MyContainer> myDynamicContainer = std::make_shared<MyContainer>();
-    myDynamicContainer->addElement(42);
+    /* Float-Container Test */
+    MyContainer<float> myFloatContainer;
+
+    myFloatContainer.addElement(3.14);
+    printContainer(myFloatContainer);
 
     return 0;
 }
