@@ -1,13 +1,6 @@
 #pragma once
 
-#include <camera.h>
+// TODO Beginn
 
-class FilmCamera : public Camera
-{
-public:
-    FilmCamera(int year, std::string make, std::string model, std::string film);
-    virtual ~FilmCamera(){};
-    void takePhoto() override;
-private:
-    std::string film_;
-};
+
+// TODO Ende

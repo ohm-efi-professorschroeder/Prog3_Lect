@@ -11,36 +11,16 @@ Nutzen Sie toString() in der main-Funktion, um die Kamera-Objekte auszugeben.
 
 using namespace std;
 
-struct Camera
-{
-    string make;
-    string model;
-    int year; 
+// TODO Beginn
 
-    void print()
-    {
-        cout << toString();
-    } 
 
-    string toString()
-    {
-        stringstream sstream;
-        sstream << make << endl
-        << model << endl
-        << year << endl;
-        return sstream.str();
-    }
-};
+// TODO Ende
 
 int main()
 {
-    Camera cam1 = {"Leica", "M5", 1972};
-    Camera cam2 = {"Sony", "A6000", 2019};
+    // TODO Beginn
 
-    Camera cam3;
 
-    cam1.make = "Canon";
-
-    cam1.print();
-    cam2.print();
+    // TODO Ende
+    return 0;
 }

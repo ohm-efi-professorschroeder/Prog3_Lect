@@ -41,8 +41,6 @@ std::ostream& operator<<(std::ostream& os, const Order& order)
                 << order.date_.tm_mday << "." << order.date_.tm_mon << "." << order.date_.tm_year;
 }
 
-// TODO in class: operator<
-bool operator<(const Order& order1, const Order& order2)
-{
-    return order1.getCustomer() < order2.getCustomer();
-}
+// TODO Beginn
+// operator<
+// TODO Ende

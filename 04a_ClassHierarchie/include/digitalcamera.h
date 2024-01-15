@@ -1,11 +1,6 @@
-#include <camera.h>
+#pragma once
 
-class DigitalCamera : public Camera
-{
-public:
-    DigitalCamera(int year, std::string make, std::string model, int megapixel);
-    virtual ~DigitalCamera(){};
-    void takePhoto() override;
-private:
-    int megapixel_;
-};
+// TODO Beginn
+
+
+// TODO Ende

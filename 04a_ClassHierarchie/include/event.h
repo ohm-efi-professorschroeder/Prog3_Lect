@@ -1,18 +1,6 @@
 #pragma once
 
-#include <string>
-#include <list>
+// TODO Beginn
 
-#include <photographer.h>
 
-class Event
-{
-public:
-    Event(std::string name, std::string date);
-    void addPhotographer(Photographer* photographer);
-    void start();
-private:
-    std::string name_;
-    std::string date_;
-    std::list<Photographer*> photographers_;
-};
+// TODO Ende

@@ -23,25 +23,13 @@ Eine Beispiel-Ausgabe könnte wie folgt aussehen:
 
 using namespace std;
 
-typedef struct
-{
-    char* make;
-    char* model;
-    int year; 
-} Camera;
+// TODO Beginn
 
-void printCamera(const Camera* camX)
-{
-    cout << camX->make << endl
-    << camX->model << endl
-    << camX->year << endl;
-}
+// TODO Ende
 
 int main()
 {
-    Camera cam1 = {(char*)"Leica", (char*)"M5", 1972};
-    Camera cam2 = {(char*)"Sony", (char*)"A6000", 2019};
+    // TODO Beginn
 
-    printCamera(&cam1);
-    printCamera(&cam2);
+    // TODO Ende
 }

@@ -8,11 +8,15 @@
 #define N 5
 class FilmLab
 {
-    using MyContainer = std::list<Order*>;
+// TODO Beginn
 
+
+// TODO Ende
 private:
-    MyContainer backlog_;
-    MyContainer processed_;
+// TODO Beginn
+
+
+// TODO Ende
 
     static void processOrder(Order* order);
 

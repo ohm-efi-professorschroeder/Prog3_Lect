@@ -8,39 +8,19 @@ using namespace std;
 
 void FilmLab::addOrder(Order* order)
 {
-    // Indexed-based iteration
-//    for(int i = 0; i < backlog_.size(); i++)
-//    {
-//        if(backlog_[i] == order)
-//        {
-//            cout << "Error: Duplicate order!" << endl;
-//            return;
-//        }
-//    }
+    // TODO Beginn
 
-    for(auto it = backlog_.begin(); it != backlog_.end(); it++)
-    {
-        if(*it == order)
-        {
-            cout << "Error: Duplicate order!" << endl;
-            return;
-        }
-    }
 
-    backlog_.push_back(order);
+    // TODO Ende
 }
 
 void FilmLab::processNextOrder()
 {
     sortBacklog();
-    // TODO in class
-    if(!backlog_.empty())
-    {
-        auto firstElement = backlog_.begin();
-        processOrder(*firstElement);
-        processed_.push_back(*firstElement);
-        backlog_.erase(firstElement);
-    }
+    // TODO Beginn
+
+
+    // TODO Ende
 }
 
 void FilmLab::processOrder(Order* order)
@@ -51,20 +31,18 @@ void FilmLab::processOrder(Order* order)
 
 void FilmLab::printBacklog() const
 {
-    cout << "Backlog: " << endl;
-    for(auto it = backlog_.begin(); it != backlog_.end(); it++)
-    {
-        cout << **it << endl;
-    }
+    // TODO Beginn
+
+
+    // TODO Ende
 }
 
 void FilmLab::printProcessed() const
 {
-    cout << "Processed: " << endl;
-    for(auto it = processed_.begin(); it != processed_.end(); it++)
-    {
-        cout << **it << endl;
-    }
+    // TODO Beginn
+
+
+    // TODO Ende
 }
 
 bool compareOrders(const Order* order1, const Order* order2)
@@ -74,25 +52,16 @@ bool compareOrders(const Order* order1, const Order* order2)
 
 void FilmLab::sortBacklog()
 {
-    //std::sort(backlog_.begin(), backlog_.end(), compareOrders);
-    backlog_.sort(compareOrders);
+    // TODO Beginn
+
+
+    // TODO Ende
 }
 
 FilmLab::MyContainer FilmLab::retrieveOrders(std::string customerName)
 {
-    MyContainer ordersToRetrieve;
-    for(auto it = processed_.begin(); it != processed_.end(); it++)
-    {
-        if((*it)->getCustomer() == customerName)
-        {
-            ordersToRetrieve.push_back(*it);
-        }
-    }
+    // TODO Beginn
 
-    for(auto it = ordersToRetrieve.begin(); it != ordersToRetrieve.end(); it++)
-    {
-        processed_.remove(*it);
-    }
 
-    return ordersToRetrieve;
+    // TODO Ende
 }
