@@ -25,11 +25,40 @@ using namespace std;
 
 // TODO Beginn
 
+typedef struct {
+    char *make;
+    char *model;
+    int year;
+} Camera;
+
+// C-style (Pointer)
+//void printCamera(const Camera *cam) {
+//    cout << cam->make << ", " << cam->model << " (" << cam->year << ") " << endl;
+//}
+
+// Cpp-style (Referenz)
+void printCamera(const Camera &cam) {
+    cout << cam.make << ", " << cam.model << " (" << cam.year << ") " << endl;
+}
+
 // TODO Ende
 
 int main()
 {
     // TODO Beginn
 
+    Camera camera1;
+    camera1.make = "Leica";
+    camera1.model = "M5";
+    camera1.year = 1975;
+
+    Camera camera2;
+    camera2.make = "Canon";
+    camera2.model = "EOS 5D";
+    camera2.year = 2010;
+
+    printCamera(camera1);
+    printCamera(camera2);
+    //printCamera(0);
     // TODO Ende
 }

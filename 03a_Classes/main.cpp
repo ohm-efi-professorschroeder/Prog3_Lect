@@ -11,14 +11,39 @@ Experimentieren Sie mit der Reihenfolge der Aufrufe der Konstruktoren und Destru
 using namespace std;
 
 // TODO Beginn
+class Camera{
+private:
+    std::string make;
+    std::string model;
+    int year;
 
+public:
+    Camera(std::string make, std::string model, int year)
+        : make(make), model(model), year(year)
+    {
+//        this->make = make;
+//        this->model = model;
+//        this->year = year;
+    }
+
+    string toString() {
+        stringstream stream;
+        stream << make << ", " << model << " (" << year << ") " << endl;
+        return stream.str();
+    }
+};
 
 // TODO Ende
 
 int main()
 {
     // TODO Beginn
+    Camera camera1 {"Leica", "M5", 1975};
+    Camera camera2 {"Canon", "EOS 5D", 2010};
+    Camera camera3 ("Sony", "A6000", 2011);
 
+    cout << camera1.toString();
+    cout << camera2.toString();
 
     // TODO Ende
 

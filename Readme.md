@@ -1,8 +1,8 @@
-# PROG3 Vorlesung WS 2023/24
+# PROG3 Vorlesung WS 2024/25
 
 *Autor: Prof. Dr.-Ing. Enrico Schröder, OHM Technische Hochschule Nürnberg, Fakultät EFI.*
 
-**Hier finden Sie den Code aus der Vorlesung PROG3 im Wintersemester 2023, den wir gemeinsam während der Vorlesung
+**Hier finden Sie den Code aus der Vorlesung PROG3 im Wintersemester 24/25, den wir gemeinsam während der Vorlesung
 entwickeln.**
 
 Ich werde nach den Vorlesungen den erarbeiteten Stand des Codes hier hochladen. Bitte beachten Sie, dass es sich hierbei
