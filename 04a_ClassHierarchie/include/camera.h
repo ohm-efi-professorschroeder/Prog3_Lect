@@ -1,29 +1,24 @@
 #pragma once
 
-// TODO Beginn
 #include <string>
 
-class Camera{
+// TODO Beginn
+
+class Camera
+{
 protected:
     std::string make;
     std::string model;
-    int year;
+    unsigned int year;
 
 public:
-    // Konstruktor
-    Camera(std::string make, std::string model, int year);
+    Camera(); // default Constructor
+    Camera(std::string make, std::string model, unsigned int year);
 
-    // Konstruktor
-    Camera();
+    // Interface
+    //virtual void takePhoto() = 0;
 
-    // Kopierkonstruktor
-    Camera(const Camera& other);
-
-    // Destruktor
-    ~Camera();
-
-    void takePhoto();
-
+    virtual void takePhoto();
 };
 
 // TODO Ende

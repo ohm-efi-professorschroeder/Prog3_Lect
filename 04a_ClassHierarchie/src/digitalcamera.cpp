@@ -1,9 +1,18 @@
 #include <digitalcamera.h>
+#include <iostream>
 
 // TODO Beginn
-DigitalCamera::DigitalCamera()
+using namespace std;
+
+DigitalCamera::DigitalCamera() : Camera()
+{}
+
+DigitalCamera::DigitalCamera(unsigned int year, string make, string model, unsigned int megapixel) : Camera(make, model, year), megapixel(megapixel)
+{}
+
+void DigitalCamera::takePhoto()
 {
-    make = "DigitalCamera";
+    cout << "Taking photo with " << megapixel << " megapixel digital camera " << make << " " << model << endl;
 }
 
 // TODO Ende
