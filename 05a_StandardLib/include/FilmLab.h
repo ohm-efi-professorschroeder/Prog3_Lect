@@ -9,12 +9,13 @@
 class FilmLab
 {
 // TODO Beginn
-
+    using MyContainer = std::list<Order*>;
 
 // TODO Ende
 private:
 // TODO Beginn
-
+    MyContainer backlog;
+    MyContainer processed;
 
 // TODO Ende
 

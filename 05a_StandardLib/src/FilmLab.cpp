@@ -8,19 +8,34 @@ using namespace std;
 
 void FilmLab::addOrder(Order* order)
 {
-    // TODO Beginn
+    // Index-basierte Iteration
+//    for(int i = 0; i < backlog.size(); i++) {
+//        if(backlog[i] == order) {
+//            cout << "Error: Duplicate order!" << endl;
+//            return;
+//        }
+//    }
 
+    // Iterator-basierte Iteration
+    for(auto it = backlog.begin(); it != backlog.end(); it++) {
+        if(*it == order) {
+            cout << "Error: Duplicate order!" << endl;
+            return;
+        }
+    }
 
-    // TODO Ende
+    backlog.push_back(order);
 }
 
 void FilmLab::processNextOrder()
 {
-    sortBacklog();
-    // TODO Beginn
-
-
-    // TODO Ende
+    //sortBacklog();
+    if(!backlog.empty()) {
+        auto firstElement = backlog.begin();
+        processOrder(*firstElement);
+        processed.push_back(*firstElement);
+        backlog.erase(firstElement);
+    }
 }
 
 void FilmLab::processOrder(Order* order)
@@ -31,18 +46,23 @@ void FilmLab::processOrder(Order* order)
 
 void FilmLab::printBacklog() const
 {
-    // TODO Beginn
-
-
-    // TODO Ende
+    cout << "Backlog: " << endl;
+//    for(int i = 0; i < backlog.size(); i++)
+//        cout << *backlog[i] << endl;
+    // Iterator-basierte Iteration
+    for(auto it = backlog.begin(); it != backlog.end(); it++) {
+        cout << **it << endl;
+    }
 }
 
 void FilmLab::printProcessed() const
 {
-    // TODO Beginn
-
-
-    // TODO Ende
+    cout << "Processed " << endl;
+//    for(int i = 0; i < processed.size(); i++)
+//        cout << *processed[i] << endl;
+    for(auto it = processed.begin(); it != processed.end(); it++) {
+        cout << **it << endl;
+    }
 }
 
 bool compareOrders(const Order* order1, const Order* order2)
@@ -52,16 +72,22 @@ bool compareOrders(const Order* order1, const Order* order2)
 
 void FilmLab::sortBacklog()
 {
-    // TODO Beginn
-
-
-    // TODO Ende
+    //std::sort(backlog.begin(), backlog.end(), compareOrders);
+    backlog.sort(compareOrders);
 }
 
 FilmLab::MyContainer FilmLab::retrieveOrders(std::string customerName)
 {
-    // TODO Beginn
+    MyContainer ordersToRetrieve;
+    for(auto it = processed.begin(); it != processed.end(); it++) {
+        if((*it)->getCustomer() == customerName) {
+            ordersToRetrieve.push_back(*it);
+        }
+    }
 
+    for(auto it = ordersToRetrieve.begin(); it != ordersToRetrieve.end(); it++) {
+        processed.remove(*it);
+    }
 
-    // TODO Ende
+    return ordersToRetrieve;
 }

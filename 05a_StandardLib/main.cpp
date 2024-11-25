@@ -61,6 +61,7 @@ int main()
     filmLab.processNextOrder();
     cout << endl;
 
+
     cout << "Alice fetches her processed orders:" << endl;
     auto alicesFilms = filmLab.retrieveOrders("Alice");
     for(auto order : alicesFilms)
