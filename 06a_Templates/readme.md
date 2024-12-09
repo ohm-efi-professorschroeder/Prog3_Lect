@@ -32,12 +32,13 @@ Sie die main-Funktion entsprechend an und testen Sie Ihre Klasse mit verschieden
 
 Aufgabe 4
 --
+Schreiben Sie nun eine template-Funktion `printContainer`, die alle Elemente eines Containers auf der Konsole ausgibt.
+
+Aufgabe 5
+--
 Schauen Sie sich nun die Funktion `getElement` an. Was passiert, wenn Sie eine Position abfragen, die nicht existiert
 und warum ist das problematisch? Wie können Sie dieses Problem lösen?
 
 Schreiben Sie die Funktion nun so um, dass mittels Exception ein Fehlerfall signalisiert wird und fangen Sie diesen in
 der main-Funktion ab.
 
-Aufgabe 5
---
-Schreiben Sie nun eine template-Funktion `printContainer`, die alle Elemente eines Containers auf der Konsole ausgibt.

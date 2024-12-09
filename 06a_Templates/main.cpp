@@ -7,10 +7,11 @@
 
 using namespace std;
 
+template<typename T>
 class MyContainer
 {
 private:
-    int *memory;
+    unique_ptr<T[]> memory;
     int length;
     int capacity;
 
@@ -23,19 +24,18 @@ public:
 
     ~MyContainer()
     {
-        delete[] memory;
+        //delete[] memory;
     }
 
     void resize(int newCapacity)
     {
-        int* newMemory = new int[newCapacity];
-        memcpy(newMemory, memory, length * sizeof(int));
-        delete[] memory;
-        memory = newMemory;
+        auto newMemory = unique_ptr<T[]>(new T[newCapacity]);
+        memcpy(newMemory.get(), memory.get(), length * sizeof(int));
+        memory.swap(newMemory);
         capacity = newCapacity;
     }
 
-    void addElement(int element)
+    void addElement(T element)
     {
         if (length == capacity)
         {
@@ -45,11 +45,11 @@ public:
         length++;
     }
 
-    int getElement(int index) const
+    T getElement(int index) const
     {
         if(index < 0 || index >= length)
         {
-            return -1;
+            throw invalid_argument("Ungueltiger Index");
         }
         return memory[index];
     }
@@ -66,7 +66,8 @@ public:
 
 };
 
-void printContainer(const MyContainer& container)
+template<typename T>
+void printContainer(const MyContainer<T>& container)
 {
     cout << "Container elements: " << endl;
     for(int i = 0; i < container.getLength(); ++i)
@@ -79,6 +80,7 @@ int main()
 {
     // Der folgende Code läuft, bevor Sie die Aufgaben bearbeitet haben (und MyContainer gemäß der Aufgabenstellung
     // modifiziert haben)!
+    /*
     MyContainer myIntContainer;
 
     myIntContainer.addElement(1);
@@ -90,9 +92,10 @@ int main()
     cout << "Container capacity: " << myIntContainer.getCapacity() << endl;
 
     printContainer(myIntContainer);
+     */
 
     // Der folgende Code läuft erst nach vollständiger Bearbeitung der Aufgaben!
-    /*
+
     // Int Template-Container Test
     MyContainer<int> myIntContainer;
 
@@ -104,8 +107,19 @@ int main()
     cout << "Container length: " << myIntContainer.getLength() << endl;
     cout << "Container capacity: " << myIntContainer.getCapacity() << endl;
 
+
     printContainer(myIntContainer);
 
+
+
+    // Float Template-Container Test
+    MyContainer<float> myFloatContainer;
+
+    myFloatContainer.addElement(3.14);
+    printContainer(myFloatContainer);
+
+
+    // Exception Test
     try
     {
         myIntContainer.getElement(99);
@@ -114,13 +128,6 @@ int main()
     {
         cout << "Exception while accessing element: " << exception.what() << endl;
     }
-
-    // Float Template-Container Test
-    MyContainer<float> myFloatContainer;
-
-    myFloatContainer.addElement(3.14);
-    printContainer(myFloatContainer);
-     */
 
     return 0;
 }

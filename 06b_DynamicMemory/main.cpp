@@ -24,34 +24,32 @@ struct MyClass
 
 void doSomething(MyClass *instance)
 {
-    cout << "Doing something with '" << instance->instanceId_ << "'" << endl;
+    cout << "Doing something with c pointer to '" << instance->instanceId_ << "'" << endl;
+}
+
+void doSomething(shared_ptr<MyClass> instance)
+{
+    cout << "Doing something with shared pointer to '" << instance->instanceId_ << "'" << endl;
+}
+
+void doSomething(const unique_ptr<MyClass>& instance)
+{
+    cout << "Doing something with unique pointer to '" << instance->instanceId_ << "'" << endl;
 }
 
 int main()
 {
     MyClass instance01("instance01");
+    shared_ptr<MyClass> sharedInstance;
 
-    {
-        MyClass instance02("instance02");
-    }
-
-    MyClass *instance03;
-    if (true)
-    {
-        instance03 = new MyClass("instance03");
-    }
-    delete instance03;
-
-    shared_ptr<MyClass> sharedPtr;
-    unique_ptr<MyClass> uniquePtr;
     if(true)
     {
-        unique_ptr<MyClass> instance04 = make_unique<MyClass>("instance04 - unique");
-        shared_ptr<MyClass> instance05 = make_shared<MyClass>("instance05 - shared");
-        sharedPtr = instance05;
-        // geht nicht: uniquePtr = instance04;
+        MyClass instance02("instance02");
+        auto instance03 = make_unique<MyClass>("instance03");
+        doSomething(instance03);
+        auto instance04 = make_shared<MyClass>("instance04");
+        sharedInstance = instance04;
     }
-    cout << "End of if" << endl;
 
     return 0;
 }
